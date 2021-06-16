@@ -116,3 +116,9 @@ penultimo(X,[X,_]).
 penultimo(X,[_,Y|Res]):- penultimo(X,[Y|Res]).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Definir la relación seleiona(?X,?L1,?L2) que se verifique si L2 es la lista obtenida
+eliminando una ocurrencia de X en L1
+
+selecciona(X,L1,L2).
+selecciona(X,[X|Res],Res).
+selecciona(X,[Cab|Res], [Cab|L2]) :- selecciona(X,Res,L2)
