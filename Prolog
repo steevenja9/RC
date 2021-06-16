@@ -98,5 +98,13 @@ la relación palíndromo(+L) que se verifique si la lista L es un palíndromo
 
 palíndromo(L) :-reverse(L,L).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Definir la relación último(?X,?L) que se verifique si X es el último elemento de la lista L
+
+ultimo(X,L1).
+ultimo(X,[X]).
+ultimo(X,[Cab|Res]) :- ultimo(X,Res).
+
 
 
