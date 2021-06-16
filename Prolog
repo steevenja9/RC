@@ -106,5 +106,13 @@ ultimo(X,L1).
 ultimo(X,[X]).
 ultimo(X,[Cab|Res]) :- ultimo(X,Res).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+9 Definir lar relación penúltimo(?X,?L) que se verifique si X es el penúltimo elemento de la
+lista L
+
+penultimo(X,L1).
+penultimo(X,[X,_]).
+penultimo(X,[_,Y|Res]):- penultimo(X,[Y|Res]).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
