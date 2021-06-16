@@ -82,7 +82,8 @@ pertenece(X, [_|Res]) :- pertenece(X,Rest). // por recursion
 conc([],L2,L2). // caso base al que reducimos por recursion
 conc([Cab|Res],L2,[Cab|L3]) :- conc(Res,L2,L3).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+                                P(N) ->  P(N-1)
+          
 Definir la relación inversa(+L1,-L2) que se verifique si L2 es la lista obtenida invirtiendo
 el orden de los elementos de la lista L1.
 
@@ -92,6 +93,10 @@ inversas([],[]).
 inversa([Cab|Res],L2):- inversa(Res,L3),append(L3,[Cab],L2).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Un palíndromo es una palabra que se lee igual en los dos sentidos, por ejemplo “oso”. Definir
+la relación palíndromo(+L) que se verifique si la lista L es un palíndromo
+
+palíndromo(L) :-reverse(L,L).
 
 
 
