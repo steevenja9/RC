@@ -1,0 +1,84 @@
+<h1>Ejercicios de programación declarativa con Prolog</h1>
+
+
+ Principio de Inducción Matemático
+ Quiero demostrar si P es cierta para todos los elementos 
+ de un conjunto S
+ 
+ El conjunto S tiene que ser ordenable
+ 
+ n0<n1<n2< ........ < n, Para todo n que pertenece al S
+ 
+ 1) P tiene que ser para n0
+    P(n0)
+ 
+ 2) si P es verdad para N-1 tambien lo sera para n0
+    P(N-1) -> P(N)
+
+
+Variables en Prolog 
+
+Una variable en Prolog cuando se le asigna un valor,
+este nunca cambia hasta que termina el ambito de la variable.
+
+Ejemplo: 
+          Constante = x en minuscula
+          Variable = X la primera en mayuscula
+
+Prolog - Primer programa
+
+natural(1).
+
+% natural(n-1)  -> natural(n).
+
+natural(N) :- N > 1, N2 IS N -1 , natural(N2). //por recursión
+
+
+a /\ b /\ c /\ d  -> e
+----------------     --------------------------
+Antecedente          Consecuente
+
+1 Listas
+ 
+ ===========================================================
+% Lista = [Cab|Resto]. 
+% [_]= variable anonima que no utilizaremos 
+
+                        P(N-1) -> P(N)
+==================================================================================
+%Definir la relación primero(?L,?X) que se verifique si X es el primer 
+%elemento de la lista L.
+
+%primero(+L1,-X).  //Parametris de Entrada(+L1), Salida(-X).
+primero([X|_],X).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definir la relación resto(?L1,?L2) que se verifique si L2 es la 
+% lista obtenida a partir de la lista L1 suprimiendo el primer elemento
+
+%resto(+Lista1,-Lista2).
+resto([_|Res],Res).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Definir la relación cons(?X,?L1,?L2) que se verifique si L2 es la lista obtenida añadiéndole
+X a L1 como primer elemento. Por ejemplo,
+
+%cons(+X,+L1,-L2).
+cons(X,L1,[X|L1]).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                  P(N) ->  P(N-1)
+
+%Definir la relación pertenece(?X,?L) que se verifique si X es un elemento de la lista L. Por
+ejemplo.
+%pertenece(+X,+L1).
+
+pertenece(X,[X|_]). // caso base al que reducimos por recursion
+pertenece(X, [_|Res]) :- pertenece(X,Rest). // por recursion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Definir la relación conc(?L1,?L2,?L3) que se verifique si L3 es la lista obtenida escribiendo
+% los elementos de L2 a continuación de los elementos de L1.
+
+conc([],L2,L2). // caso base al que reducimos por recursion
+conc([Cab|Res],L2,[Cab|L3]) :- conc(Res,L2,L3).
+
