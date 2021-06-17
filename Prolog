@@ -82,6 +82,21 @@ pertenece(X, [_|Res]) :- pertenece(X,Rest). // por recursion
 conc([],L2,L2). // caso base al que reducimos por recursion
 conc([Cab|Res],L2,[Cab|L3]) :- conc(Res,L2,L3).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+            Uso del append.
+
+? - append ([a, b], [c], X).
+X = [a, b, c].
+
+? - append (X, [Último], [a, b, c]).
+X = [a, b],
+Último = c.
+
+? - append ([a, b], Más, Lista).
+List = [a, b | Más].
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
                                 P(N) ->  P(N-1)
           
 Definir la relación inversa(+L1,-L2) que se verifique si L2 es la lista obtenida invirtiendo
