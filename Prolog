@@ -155,4 +155,20 @@ selecciona(X,[Cab|Res], [Cab|L2]) :- selecciona(X,Res,L2)
 Definir la relación inserta(?X,?L1,?L2) que se verifique si L2 es una lista obtenida insertando X en L1.
 
 inserta(X,L1,L2).
-inserta(X,L1,L2) :- append(X,L2,L1).
+inserta(X,L1,L2) :- select(X,L2,L1).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Definir la relación sublista(?L1,?L2) que se verifique si L1 es una sublista de L2.
+
+[c,d] , [a,b,c,d]
+
+sublista(L1,L2) :- append(_L3,L5,L2),append(L1,_L5,L4).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Definir la relación permutación(+L1,?L2) que se verifique si L2 es una permutación de
+L1. 
+permutacion([],[]).
+permutacion(L1,[Cab|Res]):- select(Cab,L1,L3), permutacion(L3,L2).
+
+permutacion([Cab|Res],L2):- append(Res,L2,Cab).
