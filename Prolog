@@ -95,6 +95,16 @@ X = [a, b],
 ? - append ([a, b], Más, Lista).
 List = [a, b | Más].
 
+--------------------------------------------------------------------------------------
+
+?- select(10,[1,2,3],R).
+false.
+
+?- select(2,[1,2,3],R).
+R = [1, 3] ;
+false.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
                                 P(N) ->  P(N-1)
@@ -129,6 +139,8 @@ lista L
 penultimo(X,L1).
 penultimo(X,[X,_]).
 penultimo(X,[_,Y|Res]):- penultimo(X,[Y|Res]).
+
+penultimo_2(X,L) :- penultimo_2(_,[X,_],L)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Definir la relación seleiona(?X,?L1,?L2) que se verifique si L2 es la lista obtenida
