@@ -143,9 +143,16 @@ penultimo(X,[_,Y|Res]):- penultimo(X,[Y|Res]).
 penultimo_2(X,L) :- penultimo_2(_,[X,_],L)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Definir la relación seleiona(?X,?L1,?L2) que se verifique si L2 es la lista obtenida
+Definir la relación seleciona(?X,?L1,?L2) que se verifique si L2 es la lista obtenida
 eliminando una ocurrencia de X en L1
 
 selecciona(X,L1,L2).
 selecciona(X,[X|Res],Res).
 selecciona(X,[Cab|Res], [Cab|L2]) :- selecciona(X,Res,L2)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Definir la relación inserta(?X,?L1,?L2) que se verifique si L2 es una lista obtenida insertando X en L1.
+
+inserta(X,L1,L2).
+inserta(X,L1,L2) :- append(X,L2,L1).
