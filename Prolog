@@ -171,4 +171,14 @@ L1.
 permutacion([],[]).
 permutacion(L1,[Cab|Res]):- select(Cab,L1,L3), permutacion(L3,L2).
 
-permutacion([Cab|Res],L2):- append(Res,L2,Cab).
+permutacion_2([Cab|Res],L2):- append(Res,L2,Cab). //COMPROBAR
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Definir la relación todos_iguales(+L) que se verifique si todos los elementos de la lista L
+son iguales entre sí
+
+todos_iguales(+L) 
+todos_iguales([]).
+todos_iguales([_]).
+todos_iguales([Cab,Cab|Res]) :- Select(Cab|Res). 
