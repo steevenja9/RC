@@ -41,7 +41,8 @@ Ejemplo:
    Tam = 3.
    length(L,3).
    L= [_1,_2,_3]. Eso es verdad cuando una lista tiene 3 variables. 
-Restricciones se ponen si ya tienes el valor de las variables  que vas a usar
+   
+Restricciones se ponen al principio para evitar llamadas innecesarias y siempre que se tenga el valor de las variables
 
 Ejemplo:
  X is 1 + length([1,2,3],L). ERROR no se puede sumar VERDADERO FALSO con un Valor
@@ -215,3 +216,14 @@ todos_iguales(+L)
 todos_iguales([]).
 todos_iguales([_]).
 todos_iguales([Cab,Cab|Res]) :- Select(Cab|Res). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+elemento_enesimo(1, [Cab|_], Cab).
+elemento_enesimo(N, [_|Resto], Elem):- N > 1, 
+  N2 is N-1, elemento_enesimo(N2, Resto, Elem).
+
+% elemento_enesimo(3, [1,2,3,4,5,6,7], Elem)
+% 
+% elemento_enesimo(2, [2,3,4,5,6,7], Elem) 
+%                  -  -------------
+%				N-1	    Resto
