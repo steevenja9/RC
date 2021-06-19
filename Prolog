@@ -28,7 +28,26 @@ esta nunca cambia en el ambito.
 Ejemplo: 
           Constante = x en minuscula
           Variable = X la primera en mayuscula
-          Variable Anonima("_")
+          Variable Anonima =(" _ ")
+          variable temporal = (" _41080 ") 
+
+Simbolos delante de la variable
+length(+entrada,-salida).
+
+length(?L,?Tam).
+% ? Esto puede estar libre o estanciado. Se puede usar el predicado de forma reversible
+Ejemplo:
+  length([1,2,3],Tam).
+   Tam = 3.
+   length(L,3).
+   L= [_1,_2,_3]. Eso es verdad cuando una lista tiene 3 variables. 
+Restricciones se ponen si ya tienes el valor de las variables  que vas a usar
+
+Ejemplo:
+ X is 1 + length([1,2,3],L). ERROR no se puede sumar VERDADERO FALSO con un Valor
+ length([1,2,3],L), X es L + 1. Eso es verdad cuando L=3 Y X= 4
+ 
+ 
 
 Prolog - Primer programa
 
@@ -50,6 +69,15 @@ Antecedente          Consecuente
 % [_]= variable anonima que no utilizaremos 
 
                         P(N-1) -> P(N)
+                        P(N) :- P(N-1)
+                            
+==================================================================================
+%Dividir una lista
+length(L1,3), append(L1,L2,[1,2,3,4,5,6,7]).
+L1 = [1,2,3]. 
+L2 = [4,5,6,7].
+
+
 ==================================================================================
 %Definir la relación primero(?L,?X) que se verifique si X es el primer 
 %elemento de la lista L.
