@@ -23,11 +23,12 @@ b :- a
 Variables en Prolog 
 
 Una variable en Prolog cuando se le asigna un valor,
-este nunca cambia hasta que termina el ambito de la variable.
+esta nunca cambia en el ambito.
 
 Ejemplo: 
           Constante = x en minuscula
           Variable = X la primera en mayuscula
+          Variable Anonima("_")
 
 Prolog - Primer programa
 
