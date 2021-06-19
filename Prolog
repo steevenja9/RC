@@ -15,6 +15,10 @@
  2) si P es verdad para N-1 tambien lo sera para n0
     P(N-1) -> P(N)
 
+En logica se escribe asi:
+a -> b
+En prolog
+b :- a
 
 Variables en Prolog 
 
